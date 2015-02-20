@@ -1,0 +1,44 @@
+﻿<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="load.js"></script>
+<script src="xsl.js"></script>
+<script src="strings.js"></script>
+</head>
+<body>
+
+<div class="main-menu" id="menu">
+	<ul class="menu-node menu-level-0 menu-open">
+	<label id="menu-label-main" onclick="menuToggle(this)">Menu ></label>
+		<li class="menu-node menu-level-1 menu-closed">
+			<ul>
+			<label id="menu-label-file" onclick="menuToggle(this)">File ></label>
+				<li class="menu-node menu-level-2 menu-closed">
+					<ul>
+						<li>
+							<label id="menu-label-load" onclick="document.getElementById('file-to-upload').click()">Open a file</label>
+							<input type="file" name="file-to-upload" id="file-to-upload" value="Load a file" onchange="loadSingleXmlFile();menuClose();" style="display:none"></input>
+						</li>
+						<li><label id="menu-label-save" onclick="saveEditedFile();menuClose();">Save current edits</label></li>
+						<li><label id="menu-label-newfile" onclick="createNewFile();menuClose();">Create a new file</label></li>
+						<li><label id="menu-label-newrow" onclick="addNewRow()">Add a new row</label></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div id="content">
+<h2 id="list-file-name"></h2>
+<!--<ul class="listview-header">
+<li id="find-column-header">Find</li>
+<li id="replace-column-header">Replace</li>
+<li id="type-column-header">Type</li>
+<li id="status-column-header">Status</li>
+</ul>-->
+<ol border="1" id="main-listview">
+</ol>
+</div>
+</body>
+</html>
